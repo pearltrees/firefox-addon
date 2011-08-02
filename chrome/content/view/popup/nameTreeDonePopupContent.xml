@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!--
+/* ***** BEGIN LICENSE BLOCK *****
+ * 
+ * Pearltrees add-on AMO, Copyright(C), 2009, Broceliand SAS, Paris, France
+ * (company in charge of developing Pearltrees)
+ * 
+ * This file is part of “Pearltrees add-on AMO”.
+ * 
+ * Pearltrees add-on AMO is free software: you can redistribute it and/or modify it under the 
+ * terms of the GNU General Public License version 3 as published by the Free Software Foundation.
+ * 
+ * Pearltrees add-on AMO is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with Pearltrees add-on AMO. 
+ * If not, see <http://www.gnu.org/licenses/>
+ * 
+ * ***** END LICENSE BLOCK *****
+-->
+
+<!DOCTYPE overlay SYSTEM "chrome://broceliand/locale/toolbar.dtd">
+<bindings xmlns="http://www.mozilla.org/xbl"
+          xmlns:xbl="http://www.mozilla.org/xbl"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <binding id="content">
+    
+    <content>
+        <xul:vbox width="336">
+
+            <xul:hbox>
+            	<xul:vbox>
+            		<xul:spacer flex="1" />
+                    <xul:image src="chrome://broceliand/skin/images/new/title.png" style="margin-top:8px;margin-left:8px;" />
+                    <xul:spacer flex="1" />
+                </xul:vbox>
+                <xul:description class="BRO_menuPopupTitle"
+                             flex="1">
+                    &popup.nameTreeDone.title;
+                </xul:description>
+                <xul:vbox style="vertical-align:middle;padding-top:2px;">
+                    <xul:image style="margin-right:2px;"
+                           class="BRO_closeButton"
+                           xbl:inherits="onclick=onCancel" />
+                    <xul:spacer flex="1" />
+                </xul:vbox>
+            </xul:hbox>
+            
+            <xul:vbox class="BRO_menuPopupContent">
+                
+                <xul:description anonid="BRO_nameTreeDoneText"
+                				 class="BRO_nameTreeDoneText"
+                				 flex="1" style="padding-right:5px;">
+                </xul:description>
+                
+                <xul:spacer height="30" />
+
+                <xul:hbox>
+                	<!-- TODO remove
+                    <xul:spacer flex="1" /> 
+                    
+                    <xul:button label="&popup.nameTree.button.confirm;"
+                            tabindex="2"
+                            class="BRO_linkButton"
+                            xbl:inherits="oncommand=onValidate" />
+                    -->
+                    <xul:spacer flex="1" />
+                    <xul:button anonid="okButton"
+                                label="&popup.nameTree.button.confirm;"
+                                tabindex="1"
+                                class="BRO_okButton"
+                                xbl:inherits="oncommand=onValidate" />
+                    <xul:spacer flex="1" />          
+                </xul:hbox>
+    
+            </xul:vbox>
+        </xul:vbox>
+    </content>
+
+    <implementation>    
+        <property name="isCurrentUrlRecorded">
+            <getter>    
+                return;            
+            </getter>
+            <setter>
+                this.bro = com.broceliand;
+                var nameTreeDoneText = document.getAnonymousElementByAttribute(this, "anonid", 'BRO_nameTreeDoneText');
+                if(val) {
+                    nameTreeDoneText.value = this.bro.Locale.getString('popup.nameTreeDone.text.recorded');
+                }else{
+                    nameTreeDoneText.value = this.bro.Locale.getString('popup.nameTreeDone.text');
+                }
+            </setter>
+        </property>       
+    </implementation>
+
+
+    <handlers>
+        <handler event="keypress">
+            var okButton = document.getAnonymousElementByAttribute(this, "anonid", "okButton");
+            okButton.doCommand();
+        </handler>
+        <handler event="click">
+            var nameTreeDonePanel = document.getElementById('BRO_nameTreeDonePanel');
+            if(nameTreeDonePanel) {
+               nameTreeDonePanel.hidePopup();
+            }
+        </handler>
+    </handlers>
+
+  </binding>
+</bindings>

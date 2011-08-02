@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<!--
+/* ***** BEGIN LICENSE BLOCK *****
+ * 
+ * Pearltrees add-on AMO, Copyright(C), 2009, Broceliand SAS, Paris, France
+ * (company in charge of developing Pearltrees)
+ * 
+ * This file is part of “Pearltrees add-on AMO”.
+ * 
+ * Pearltrees add-on AMO is free software: you can redistribute it and/or modify it under the 
+ * terms of the GNU General Public License version 3 as published by the Free Software Foundation.
+ * 
+ * Pearltrees add-on AMO is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with Pearltrees add-on AMO. 
+ * If not, see <http://www.gnu.org/licenses/>
+ * 
+ * ***** END LICENSE BLOCK *****
+-->
+
+<!DOCTYPE overlay SYSTEM "chrome://broceliand/locale/toolbar.dtd">
+<bindings xmlns="http://www.mozilla.org/xbl"
+          xmlns:xbl="http://www.mozilla.org/xbl"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <binding id="content">
+    
+    <content>
+    	<xul:vbox>
+    		
+    		<xul:hbox>
+    			<xul:vbox>
+    				<xul:spacer flex="1" />
+                    <xul:image anonid="BRO_logo" style="margin-top:8px;margin-left:6px;" />
+                    <xul:spacer flex="1" />
+                </xul:vbox>
+                <xul:description anonid="BRO_helpTitle"
+                             class="BRO_menuPopupTitle" flex="1">
+                </xul:description>
+                <xul:vbox style="vertical-align:middle;padding-top:2px;">
+                    <xul:image style="margin-right:2px;"
+                           class="BRO_closeButton"
+                           xbl:inherits="onclick=onValidate" />
+                    <xul:spacer flex="1" />
+                </xul:vbox>
+            </xul:hbox>
+            
+            <!--
+            <xul:description anonid="BRO_helpTitleStart"
+                         class="BRO_menuPopupTitle"
+                         style="text-align:justify;">
+                &popup.help.title.firstStart;
+            </xul:description>
+            <xul:description anonid="BRO_helpTitle"
+                         class="BRO_menuPopupTitle">
+                &popup.help.title;
+            </xul:description>
+            -->
+                    
+            <xul:vbox class="BRO_menuPopupContent" 
+            		  style="padding-left:8px !important;">
+                                
+                <xul:description anonid="BRO_helpTitleStart" hidden="true"
+                                 flex="1" class="BRO_helpTextStart">
+                    &popup.help.title.firstStart;
+                </xul:description>
+                
+                <xul:spacer height="0" />
+
+                <xul:hbox class="BRO_helpItem">
+                    <xul:image flex="0"
+                               src="chrome://broceliand/skin/images/pearl/pearl.png" />                	
+                    <xul:description>
+                    	&popup.help.item.pearl;
+                    </xul:description>
+                </xul:hbox>
+                <xul:hbox class="BRO_helpItem">
+                    <xul:image flex="0"
+                               src="chrome://broceliand/skin/images/pearl/option.png" />                 
+                    <xul:description>
+                        &popup.help.item.option;
+                    </xul:description>
+                </xul:hbox>
+                <xul:hbox class="BRO_helpItem">
+                    <xul:image flex="0"
+                               src="chrome://broceliand/skin/images/new/new.png" />                 
+                    <xul:description>
+                        &popup.help.item.new;
+                    </xul:description>
+                </xul:hbox>
+                <xul:hbox class="BRO_helpItem">
+                    <xul:image flex="0"
+                               src="chrome://broceliand/skin/images/reveal/reveal.png" />                 
+                    <xul:description>
+                        &popup.help.item.reveal;
+                    </xul:description>
+                </xul:hbox>
+                		   
+                <xul:spacer height="10" />
+            </xul:vbox>
+        </xul:vbox>
+    </content>
+
+    <implementation> 
+        <property name="isStart" readonly="false" >
+            <getter>   
+                return this.getAttribute('isStart');            
+            </getter>
+            <setter>
+            	this.setAttribute('isStart', val);
+            	this.bro = com.broceliand;
+            	var logo = document.getAnonymousElementByAttribute(this, "anonid", "BRO_logo");
+                var helpTitleStart = document.getAnonymousElementByAttribute(this, "anonid", "BRO_helpTitleStart");
+                var helpTitle = document.getAnonymousElementByAttribute(this, "anonid", "BRO_helpTitle");
+                
+                if(val) {
+                    logo.src = "chrome://broceliand/skin/images/pearl/dimitri.png";
+                    helpTitleStart.hidden = false;
+                    helpTitle.value = this.bro.Locale.getString('popup.help.start.title');
+                } else {    
+                    logo.src = "chrome://broceliand/skin/images/pearl/help.png";
+                    helpTitleStart.hidden = true;
+                    helpTitle.value = this.bro.Locale.getString('popup.help.title');
+                }
+            </setter>
+        </property>
+        
+        <method name="setIsStart">
+           <parameter name="val"/>
+           <body>
+                this.setAttribute('isStart', val);
+                this.bro = com.broceliand;
+                var logo = document.getAnonymousElementByAttribute(this, "anonid", "BRO_logo");
+                var helpTitleStart = document.getAnonymousElementByAttribute(this, "anonid", "BRO_helpTitleStart");
+                var helpTitle = document.getAnonymousElementByAttribute(this, "anonid", "BRO_helpTitle");
+                
+                if(val) {
+                    logo.src = "chrome://broceliand/skin/images/pearl/dimitri.png";
+                    helpTitleStart.hidden = false;
+                    helpTitle.value = this.bro.Locale.getString('popup.help.start.title');
+                } else {    
+                    logo.src = "chrome://broceliand/skin/images/pearl/help.png";
+                    helpTitleStart.hidden = true;
+                    helpTitle.value = this.bro.Locale.getString('popup.help.title');
+                }
+           </body>
+        </method>
+
+    </implementation>
+
+    <handlers>
+        <handler event="keypress">
+            var okButton = document.getAnonymousElementByAttribute(this, "anonid", "okButton");
+            okButton.doCommand();
+        </handler>
+        <handler event="click">
+        	var helpPanel = document.getElementById('BRO_helpPanel');
+        	if(helpPanel) {
+        	   helpPanel.hidePopup();
+        	}
+        </handler>
+    </handlers>
+
+  </binding>
+</bindings>

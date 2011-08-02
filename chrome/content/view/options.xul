@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!--
+/* ***** BEGIN LICENSE BLOCK *****
+ * 
+ * Pearltrees add-on AMO, Copyright(C), 2009, Broceliand SAS, Paris, France 
+ * (company in charge of developing Pearltrees)
+ * 
+ * This file is part of “Pearltrees add-on AMO”.
+ * 
+ * Pearltrees add-on AMO is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License version 3 as published by the Free Software Foundation.
+ * 
+ * Pearltrees add-on AMO is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with Pearltrees add-on AMO.
+ * If not, see <http://www.gnu.org/licenses/>
+ * 
+ * ***** END LICENSE BLOCK *****
+-->
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://broceliand/skin/options.css" type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://broceliand/locale/options.dtd"> 
+<prefwindow id="BRO_prefs"
+     title="&prefwindow.title;"
+     onload="com.broceliand.Options.onLoad(event)"
+     buttons=","
+     style="width:&prefwindow.width;"
+     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+     xmlns:html="http://www.w3.org/1999/xhtml">
+
+<!-- account settings -->
+<prefpane id="BRO_account"
+          label="&account.panel.label;"
+          image="chrome://broceliand/skin/images/logo.png">
+
+    <vbox>
+        <hbox>
+            <description id="BRO_errorDescription" collapsed="true">
+                &error.description;
+            </description>
+        </hbox>
+        <hbox>
+            <button label="&customize.link.value;"
+                    oncommand="com.broceliand.Options.onClickCustomize(event); self.close();"
+                    id="BRO_customizeButton" />
+        </hbox>
+    </vbox>
+</prefpane>
+<!-- About -->
+<prefpane id="BRO_about"
+          image="chrome://broceliand/skin/images/about.png"
+          label="&about.panel.label;"> 
+
+    <vbox>
+        <hbox>
+            <description width="60px">&about.version;</description>
+            <description id="BRO_versionDescription"></description>
+        </hbox>
+        <hbox>
+            <description width="60px">&about.author;</description>
+            <description>pearltrees</description>
+        </hbox>
+        <hbox>
+            <description width="60px">&about.licence;</description>
+            <button label="GNU-GPL v3"
+                    class="BRO_linkButton"
+                    onclick="com.broceliand.Options.onClickLicence()" />
+            <!--
+            <description>
+            <html:a href="http://www.perdu.com" target="_blank" style="color:blue">GNU-GPL</html:a>
+            </description>
+            -->
+        </hbox>
+        <hbox>
+            <description width="60px">&about.status;</description>
+            <description id="BRO_statusDescription" />
+        </hbox>
+        <hbox>
+            <description width="60px">&about.server;</description>
+            <description id="BRO_serverDescription" />
+        </hbox>
+        <hbox>
+            <description width="60px">&about.source;</description>
+            <description id="BRO_sourceDescription" />
+        </hbox>        
+    </vbox>
+</prefpane>
+
+<script type="application/x-javascript" src="chrome://broceliand/content/config.js" />
+<script type="application/x-javascript" src="chrome://broceliand/content/controller/Options.js" />
+
+</prefwindow>

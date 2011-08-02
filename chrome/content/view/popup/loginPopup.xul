@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!--
+/* ***** BEGIN LICENSE BLOCK *****
+ * 
+ * Pearltrees add-on AMO, Copyright(C), 2009, Broceliand SAS, Paris, France
+ * (company in charge of developing Pearltrees)
+ * 
+ * This file is part of “Pearltrees add-on AMO”.
+ * 
+ * Pearltrees add-on AMO is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License version 3 as published by the Free Software Foundation.
+ * 
+ * Pearltrees add-on AMO is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with Pearltrees add-on AMO.
+ * If not, see <http://www.gnu.org/licenses/>
+ * 
+ * ***** END LICENSE BLOCK *****
+-->
+
+<?xml-stylesheet href="chrome://broceliand/skin/broceliand.css"
+                 type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://broceliand/locale/toolbar.dtd">
+<window id="BRO_loginWindow"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        class="BRO_menuPopup"
+        onload="init();">
+
+    <vbox id="BRO_loginWindowContent" 
+          class="BRO_loginPopupContent"
+          onCancel="onClickCancelButton()"
+          onValidate="onClickOkButton()" />
+
+    <script type="application/x-javascript" src="chrome://broceliand/content/config.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/Utils.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/model/Log.js" />
+
+    <script>
+        <![CDATA[
+        function init() {
+            var username = window.arguments[0].inn.username;
+            var loginContent = document.getElementById('BRO_loginWindowContent');
+            if(username && username != "") {
+                loginContent.username = username;
+                loginContent.focusPassword();
+            }else{
+                loginContent.username = "";
+                loginContent.focusUsername();
+            }
+            loginContent.password = "";
+            
+            var showErrorMessage = window.arguments[0].inn.showErrorMessage;
+            if(showErrorMessage) {
+                loginContent.displayError();
+            }else{
+                loginContent.hideError();
+            }
+        }
+
+        function onClickOkButton(event) {
+            validate();
+        }
+        
+        function onClickCancelButton(event) {
+            cancel();
+        }
+
+        function validate() {
+            var loginContent = document.getElementById('BRO_loginWindowContent');
+            var username = loginContent.username;
+            var password = loginContent.password;
+
+            if(username && com.broceliand.Tools.trim(username) != "" && password && com.broceliand.Tools.trim(password) != "") {
+                loginContent.hideError();
+                window.arguments[0].out = {confirm:true, username:username, password:password};
+                window.close();
+            }else{
+                loginContent.displayError();
+            }
+        }
+        function cancel() {
+            window.arguments[0].out = {confirm:false, username:null, password:null};
+            window.close();
+        }
+        ]]>
+    </script>
+
+</window>

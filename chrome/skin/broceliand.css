@@ -1,0 +1,433 @@
+BRO_closeButtondescription {
+    margin:0px !important;
+}
+.BRO_nameTreePopupContent {
+    -moz-binding: url("chrome://broceliand/content/view/popup/nameTreePopupContent.xml#content");
+}
+.BRO_loginPopupContent {
+    -moz-binding: url("chrome://broceliand/content/view/popup/loginPopupContent.xml#content");
+}
+.BRO_notePopupContent {
+    -moz-binding: url("chrome://broceliand/content/view/popup/notePopupContent.xml#content");
+}
+.BRO_helpPopupContent {
+    -moz-binding: url("chrome://broceliand/content/view/popup/helpPopupContent.xml#content");
+}
+.BRO_nameTreeDonePopupContent {
+    -moz-binding: url("chrome://broceliand/content/view/popup/nameTreeDonePopupContent.xml#content");
+}
+.BRO_optionPopupContent {
+    -moz-binding: url("chrome://broceliand/content/view/popup/optionPopupContent.xml#content");
+}
+.BRO_checkImage {
+    list-style-image: url("chrome://broceliand/skin/images/pearl/check.png");
+    width:6px !important;
+    height:6px !important;
+    max-width:6px !important; 
+    max-height:6px !important; 
+    margin-top:4px;
+}
+.BRO_menuPopup spacer {
+    background-color: transparent;
+    -moz-appearance: none;
+}
+.BRO_closeButton {
+   list-style-image: url("chrome://broceliand/skin/images/window/close.png");
+}
+.BRO_closeButton:hover {
+   list-style-image: url("chrome://broceliand/skin/images/window/closeOver.png");
+}
+.BRO_okButton {
+    -moz-appearance: none !important;
+    padding-left:0px !important;
+    padding-right:0px !important;
+    -moz-border-top-colors:#505050 !important;
+    -moz-border-right-colors:#505050 !important;
+    -moz-border-bottom-colors:#505050 !important;
+    -moz-border-left-colors:#505050 !important;
+    border:2px solid #505050 !important;
+    -moz-border-radius: 5px !important;
+    background:none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    list-style-image: none !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    margin:0px !important;
+    padding-top:0px !important;
+    padding-bottom:0px !important;
+    padding-left:12px !important;
+    padding-right:12px !important;
+    max-height:20px !important;
+    min-width:0px !important;
+    font-size:14px !important;
+    color: #505050 !important;  
+    -moz-box-shadow:none !important; 
+}
+.BRO_okButton label {
+    color: #505050 !important;
+    background:none !important;
+    background-image: none !important;
+    list-style-image: none !important;
+}
+.BRO_okButton:hover {
+    -moz-border-top-colors:#009ee0 !important;
+    -moz-border-right-colors:#009ee0 !important;
+    -moz-border-bottom-colors:#009ee0 !important;
+    -moz-border-left-colors:#009ee0 !important;
+    border:2px solid #009ee0 !important;
+    color: #009ee0 !important;
+}
+.BRO_okButton * {
+    margin:0px !important;
+    padding:0px !important; 
+}
+.BRO_linkButton {
+    -moz-appearance: none !important;
+    padding-left:0px !important;
+    padding-right:0px !important;
+    border:none !important;
+    background:none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    list-style-image: none !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    margin:0px !important;
+    padding:0px !important;
+    min-width:0px !important;
+    font-size:14px !important;
+    color: #505050 !important;
+    -moz-box-shadow:none !important;
+}
+.BRO_linkButton .button-box, .BRO_okButton .button-box {
+    -moz-appearance: none !important;
+    background: none !important;
+    padding-left:0px !important;
+    padding-right:0px !important;
+    -moz-box-shadow:none !important;
+    color: #505050 !important;
+}
+.BRO_linkButton label {
+    color: #505050 !important;
+}
+.BRO_linkButton:hover, .BRO_linkButton:hover label, .BRO_okButton:hover label {
+    color: #009ee0 !important;
+}
+#BRO_switchModeButton.BRO_linkButton {
+    color: #505050 !important;
+}
+#BRO_switchModeButton.BRO_linkButton:hover {
+    color: #009ee0 !important;
+}
+#BRO_nameTreeDonePanel, #BRO_helpPanel, #BRO_nameTreeWindow, #BRO_newTreePanel, #BRO_treeFullWindow, #BRO_nameTreeDoneWindow, #BRO_loginPanel, #BRO_loginWindow, #BRO_optionWindow {
+    padding:0px !important;
+    font-size:14px !important;   
+    color: #505050;
+    font-family: Arial !important;
+}
+#BRO_notePopupPanel {
+    padding-left:5px !important;
+    padding-right:5px !important;
+}
+#BRO_helpPanel {
+    width: 360px;
+}
+#BRO_nameTreeDonePanel {
+
+}
+#BRO_manyPearlsText {
+    font-size:14px !important;
+    text-align:justify !important;
+    width: 330px !important;
+    padding-right:5px !important; 
+    font-weight: bold !important;
+}
+.BRO_nameTreeDoneText {
+    font-size:14px !important;
+    padding-right:5px !important;
+    font-weight: bold !important;
+    /* does not work :( */
+    width: 310px !important;
+}
+.BRO_helpTextStart {
+    font-size:14px !important;
+    padding-right:5px !important;
+    padding-top: 0px !important;
+    text-align:justify !important;
+}
+.BRO_helpItem {
+    padding-top: 15px !important;
+}
+.BRO_helpItem description {
+    font-size: 14px !important;
+    padding-top: 0px !important;
+    padding-left: 4px !important; 
+}
+.BRO_menuPopup {
+    -moz-appearance:none !important;
+    -moz-border-top-colors:#505050 !important;
+    -moz-border-right-colors:#505050 !important;
+    -moz-border-bottom-colors:#505050 !important;
+    -moz-border-left-colors:#505050 !important;
+    -moz-border-radius: 5px !important;
+    border:2px solid #505050 !important;
+    background-image:none !important;
+    background-color:#FFFFFF !important;
+    padding:0px !important;
+    margin:0px !important;
+    font-family: Arial !important;
+    color: #505050 !important;
+}
+.BRO_menuPopupTitle {
+    color: #505050 !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+    margin-left:5px !important;
+    margin-top:12px !important;
+}
+.BRO_menuPopupContent {
+    padding-top:10px !important;
+    padding-bottom:3px !important;
+    padding-left:8px !important;
+    padding-right:8px !important;
+}
+#BRO_newButtonMenuPopupTitle.BRO_menuPopupTitle {
+
+}
+#BRO_newButtonMenuPopupTitle.BRO_menuPopupTitleHighlighted {
+
+}
+.BRO_menuPopup textbox {
+    -moz-appearance:none !important;
+    -moz-border-top-colors:#505050 !important;
+    -moz-border-right-colors:#505050 !important;
+    -moz-border-bottom-colors:#505050 !important;
+    -moz-border-left-colors:#505050 !important;
+    -moz-border-radius: 5px !important;
+    border:2px solid #505050 !important;
+    background-image:none !important;
+    background-color:#FFFFFF !important;
+    padding-left:2px !important;
+    padding-top:2px !important;
+    padding-bottom:2px !important;
+    padding-right:2px !important;
+    margin:0px !important;
+    font-family: Arial !important;
+    font-size: 14px !important; 
+    -moz-box-shadow:none !important;
+}
+#BRO_newButtonPopup {
+    width: 340px;
+}
+#BRO_recordButtonPopup {
+   height:115px;
+}
+#BRO_firstInstallButtonPopup .BRO_treeListBoxSpecialItem {
+    padding-right:20px !important;
+    padding-top:5px !important;
+    padding-bottom:5px !important;
+}
+#BRO_firstInstallButtonPopup .BRO_treeListBoxSpecialItem description {
+    padding-left:8px !important;
+}
+#BRO_recordButtonPopup .BRO_treeListBoxSpecialItem, #BRO_recordButtonPopup .BRO_treeListBoxSpecialItemDisabled {
+    height:25px !important;
+    padding-left:8px !important;
+}
+#BRO_recordButtonPopup .BRO_treeListBoxSpecialItem description {
+    padding-left:5px !important;
+    padding-top:4px !important;
+    padding-right:20px !important;
+}
+#BRO_recordButtonPopup .BRO_treeListBoxSpecialItemDisabled description {
+    padding-left:5px !important;
+    padding-top:4px !important;
+    padding-right:20px !important;
+    color: #CCCCCC !important;        
+}
+#BRO_recordButtonPopup separator {
+    -moz-appearance:none !important;
+    border:none !important;
+    border-top:1px solid #CCCCCC !important;
+    height:1px !important;
+    margin-left:5px !important;
+    margin-right:5px !important;
+}
+.BRO_treeListBox{
+    -moz-appearance:none;
+    overflow: auto;
+    margin:0px;
+    font-size: 14px;
+    border:none;
+}
+.BRO_treeListBoxSpecialItem, .BRO_treeListBoxSpecialItemDisabled {
+    padding-top:2px;
+    padding-bottom:2px;
+    padding-left:3px !important;
+    font-weight: bold;
+    color: #505050;
+    font-size: 14px;
+}
+.BRO_treeListBoxSpecialItemSelected {
+    background-color: #009ee0;
+    padding-top:2px;
+    padding-bottom:2px;
+    padding-left:3px;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.BRO_treeListBox richlistitem[selected="true"], .BRO_treeListBox .BRO_treeSelectionStep2, .BRO_treeListBox .BRO_treeSelectionStep2:hover {
+    background-color: #009ee0;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.BRO_treeListBox richlistitem, .BRO_treeListBox .BRO_treeSelectionStep1, .BRO_treeListBox .BRO_treeSelectionStep1:hover, .BRO_treeListBox .BRO_treeCollapseList, .BRO_treeListBox .BRO_treeCollapseList:hover {
+    background-color: #FFFFFF;
+    color: #505050;
+    font-size: 14px;
+    height:23px; /* old : 17px */
+    background-image:none;
+    margin:0;
+    padding:0;
+    border:none;
+    padding-left:8px !important;
+}
+.BRO_treeListBox richlistitem:hover, .BRO_treeListBoxSpecialItem:hover {
+    background-color: #4cbbe9 !important;
+    color: #FFFFFF !important;
+    font-size: 14px !important;
+}
+.BRO_treeListBox .BRO_treeFull {
+    color: #999999 !important;
+}
+.BRO_treeListBox .BRO_treeFull:hover, .BRO_treeListBox .BRO_treeFull[selected="true"], .BRO_treeListBox .BRO_treeFull[selected="true"]:hover{
+    background-color: #4cbbe9 !important;
+    color: #FFFFFF !important;
+}
+.BRO_treeListBoxItemIndentVisible { border-right:1px solid #dadada; width: 7px; margin-right:10px; padding-top:4px; padding-bottom:3px; }
+.BRO_treeListBoxItemIndentSelected { border-right:1px solid #009ee0; width: 7px; margin-right:10px; padding-top:4px; padding-bottom:3px; }
+.BRO_treeListBoxItemIndent { border-right:0px ; width: 15px; margin-right:3px; padding-top:4px; padding-bottom:3px; }
+.BRO_treeListSeparatorItem, .BRO_treeListSeparatorItem:hover{
+    background-color: transparent !important;
+    color: #505050 !important;
+    padding-left:5px !important;
+}
+.BRO_treeListBoxItemDesc {
+    padding-top:3px !important;
+}
+.BRO_treeListSeparator{
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:50px;
+    list-style-image: url("chrome://broceliand/skin/images/new/separator.png");
+}
+.BRO_helpSeparator{
+    margin-top:10px;
+    margin-bottom:10px;
+    list-style-image: url("chrome://broceliand/skin/images/new/separator.png");
+}
+.BRO_noteTextbox {
+}
+.BRO_homeButton {
+    list-style-image: url("chrome://broceliand/skin/images/reveal/reveal.png");
+}
+#BRO_homeButton {
+}
+toolbar[iconsize="small"] .BRO_homeButton {
+  list-style-image: url("chrome://broceliand/skin/images/reveal/reveal.png");
+}
+
+#BRO_homeButton > label{
+    text-align: left;
+} 
+.BRO_homeButton:hover {
+    list-style-image: url("chrome://broceliand/skin/images/reveal/reveal-over.png");
+}
+.BRO_homeButtonEffect1 { list-style-image: url("chrome://broceliand/skin/images/reveal/reveal-over-anim01.png");}
+.BRO_homeButtonEffect2 { list-style-image: url("chrome://broceliand/skin/images/reveal/reveal-over-anim02.png");}
+.BRO_homeButtonEffect3 { list-style-image: url("chrome://broceliand/skin/images/reveal/reveal-over-anim03.png");}
+.BRO_homeButtonEffect4 { list-style-image: url("chrome://broceliand/skin/images/reveal/reveal-over-anim04.png");}
+.BRO_homeButtonEffect5 { list-style-image: url("chrome://broceliand/skin/images/reveal/reveal-over-anim05.png");}
+.BRO_homeButtonEffect6 { list-style-image: url("chrome://broceliand/skin/images/reveal/reveal-over-anim06.png");}
+.BRO_homeButtonEffect7 { list-style-image: url("chrome://broceliand/skin/images/reveal/reveal-over-anim07.png");}
+.BRO_homeButtonEffect8 { list-style-image: url("chrome://broceliand/skin/images/reveal/reveal-over-anim08.png");}
+.BRO_homeButtonEffect9 { list-style-image: url("chrome://broceliand/skin/images/reveal/reveal-over-anim09.png");}
+.BRO_homeButtonEffect10 { list-style-image: url("chrome://broceliand/skin/images/reveal/reveal-over-anim10.png");}
+#BRO_newButton{
+}
+#BRO_newButton > label{
+    text-align: left;
+}
+#BRO_newButton .toolbarbutton-menu-dropmarker{
+    list-style-image: none;
+}
+.BRO_newButtonPearlMode {
+    list-style-image: url("chrome://broceliand/skin/images/new/new.png");
+}
+.BRO_newButtonPearlMode:hover {
+    list-style-image: url("chrome://broceliand/skin/images/new/new-over.png");
+}
+.BRO_newButtonNavigateMode {
+    list-style-image: url("chrome://broceliand/skin/images/new/go.png");
+}
+.BRO_newButtonNavigateMode:hover {
+    list-style-image: url("chrome://broceliand/skin/images/new/goOver.png");
+}
+.BRO_stopButton {
+    list-style-image: url("chrome://broceliand/skin/images/stop/stop.png");
+}
+.BRO_stopButton:hover {
+    list-style-image: url("chrome://broceliand/skin/images/stop/stop-over.png");
+}
+.BRO_stopButtonDisabled {
+    list-style-image: url("chrome://broceliand/skin/images/stop/stop-disabled.png");
+}
+#BRO_stopButton > label{
+    text-align: left;
+} 
+.BRO_stopButtonEffect1 { list-style-image: url("chrome://broceliand/skin/images/stop/stop-over-anim01.png");}
+.BRO_stopButtonEffect2 { list-style-image: url("chrome://broceliand/skin/images/stop/stop-over-anim02.png");}
+.BRO_stopButtonEffect3 { list-style-image: url("chrome://broceliand/skin/images/stop/stop-over-anim03.png");}
+.BRO_stopButtonEffect4 { list-style-image: url("chrome://broceliand/skin/images/stop/stop-over-anim04.png");}
+.BRO_stopButtonEffect5 { list-style-image: url("chrome://broceliand/skin/images/stop/stop-over-anim05.png");}
+.BRO_stopButtonEffect6 { list-style-image: url("chrome://broceliand/skin/images/stop/stop-over-anim06.png");}
+.BRO_stopButtonEffect7 { list-style-image: url("chrome://broceliand/skin/images/stop/stop-over-anim07.png");}
+.BRO_stopButtonEffect8 { list-style-image: url("chrome://broceliand/skin/images/stop/stop-over-anim08.png");}
+.BRO_stopButtonEffect9 { list-style-image: url("chrome://broceliand/skin/images/stop/stop-over-anim09.png");}
+.BRO_stopButtonEffect10 { list-style-image: url("chrome://broceliand/skin/images/stop/stop-over-anim10.png");}
+#BRO_recordButton {
+}
+#BRO_recordButton > label{
+    text-align: left;
+} 
+.BRO_recordButtonSpacer {
+}
+.BRO_recordButtonDefault {
+    list-style-image: url("chrome://broceliand/skin/images/pearl/pearl.png");
+}
+.BRO_recordButtonDefault:hover {
+    list-style-image: url("chrome://broceliand/skin/images/pearl/pearl-over.png");
+}
+.BRO_recordButtonIsRecording {
+    list-style-image: url("chrome://broceliand/skin/images/pearl/pearling.png");
+}
+.BRO_recordButtonIsRecording:hover {
+    list-style-image: url("chrome://broceliand/skin/images/pearl/pearling-over.png");
+}
+.BRO_recordButtonEffect1 { list-style-image: url("chrome://broceliand/skin/images/pearl/pearling-anim01.png");}
+.BRO_recordButtonEffect2 { list-style-image: url("chrome://broceliand/skin/images/pearl/pearling-anim02.png");}
+.BRO_recordButtonEffect3 { list-style-image: url("chrome://broceliand/skin/images/pearl/pearling-anim03.png");}
+.BRO_recordButtonEffect4 { list-style-image: url("chrome://broceliand/skin/images/pearl/pearling-anim04.png");}
+.BRO_recordButtonEffect5 { list-style-image: url("chrome://broceliand/skin/images/pearl/pearling-anim05.png");}
+.BRO_recordButtonEffect6 { list-style-image: url("chrome://broceliand/skin/images/pearl/pearling-anim06.png");}
+#BRO_rightSide{
+    margin-right:20px;
+}
+#this.bro.Toolbar{
+    padding: 0;
+}
+#this.bro.Toolbar toolbarbutton{
+    -moz-box-orient: horizontal;
+}

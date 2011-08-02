@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<!--
+/* ***** BEGIN LICENSE BLOCK *****
+ * 
+ * Pearltrees add-on AMO, Copyright(C), 2009, Broceliand SAS, Paris, France
+ * (company in charge of developing Pearltrees)
+ * 
+ * This file is part of “Pearltrees add-on AMO”.
+ * 
+ * Pearltrees add-on AMO is free software: you can redistribute it and/or modify it under the 
+ * terms of the GNU General Public License version 3 as published by the Free Software Foundation.
+ * 
+ * Pearltrees add-on AMO is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with Pearltrees add-on AMO. 
+ * If not, see <http://www.gnu.org/licenses/>
+ * 
+ * ***** END LICENSE BLOCK *****
+-->
+
+<!DOCTYPE overlay SYSTEM "chrome://broceliand/locale/toolbar.dtd">
+<bindings xmlns="http://www.mozilla.org/xbl"
+          xmlns:xbl="http://www.mozilla.org/xbl"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <binding id="content">
+    
+    <content>
+        <xul:vbox>
+        	
+        	<xul:hbox>
+        		<xul:vbox>
+        			<xul:spacer flex="1" />
+                    <xul:image src="chrome://broceliand/skin/images/pearl/note.png" style="margin-top:8px;margin-left:8px;" />
+                    <xul:spacer flex="1" />
+                </xul:vbox>
+                <xul:description class="BRO_menuPopupTitle"
+                                 flex="1">
+                    &popup.note.title;
+                </xul:description>
+                <xul:vbox style="vertical-align:middle;padding-top:2px;">
+                    <xul:image style="margin-right:2px;"
+                           class="BRO_closeButton"
+                           xbl:inherits="onclick=onCancel" />
+                    <xul:spacer flex="1" />
+                </xul:vbox>
+            </xul:hbox>
+            
+            <xul:vbox class="BRO_menuPopupContent">
+                <xul:vbox>
+                    <xul:textbox anonid="textBox"
+                                 multiline="true"
+                                 rows="8"
+                                 cols="50"
+                                 class="BRO_noteTextbox"
+                                 tooltiptext="&note.button.tooltip;" />
+                </xul:vbox>
+                
+                <xul:spacer height="10px" />
+                
+                <xul:hbox> 
+                    <!--
+                    <xul:spacer width="5px" />
+                    <xul:button anonid="cancelButton" 
+                                label="&popup.nameTree.button.cancel;"
+                                default="true"
+                                tabindex="1"
+                                style="font-weight:normal"
+                                class="BRO_linkButton"
+                                xbl:inherits="oncommand=onCancel" />
+                    <xul:spacer flex="1" />
+                    <xul:button anonid="okButton"
+                                label="&note.button.confirm;"
+                                tabindex="2"
+                                class="BRO_linkButton"
+                                oncommand="onClickOkButton(event)"
+                                xbl:inherits="oncommand=onValidate" />
+                    <xul:spacer width="5px" />
+                    -->
+                    <xul:spacer flex="1" />
+                    <xul:button anonid="okButton"
+                    			label="&note.button.confirm;"
+                    			tabindex="1"
+                    			class="BRO_okButton"
+                    			oncommand="onClickOkButton(event)"
+                                xbl:inherits="oncommand=onValidate" />
+                    <xul:spacer flex="1" />
+                </xul:hbox>
+            </xul:vbox> 
+        </xul:vbox> 
+    </content>
+
+    <implementation>
+        <property name="text">
+            <getter>
+                return document.getAnonymousElementByAttribute(this, "anonid", "textBox").value;
+            </getter>
+            <setter>
+            	var textBox = document.getAnonymousElementByAttribute(this, "anonid", "textBox");
+                textBox.value = val;
+                if(val == this.getAttribute('defaultText')) {
+                    textBox.value = val;
+                    textBox.style.color = '#999999';                    
+                }
+            </setter>
+        </property>
+
+        <property name="defaultText">
+            <getter>
+                return this.getAttribute('defaultText');
+            </getter>
+            <setter>
+                this.setAttribute('defaultText', val);
+                var textBox = document.getAnonymousElementByAttribute(this, "anonid", "textBox");
+                if(!textBox.value || textBox.value == "") {
+                    textBox.value = val;
+                    textBox.style.color = '#999999';
+                }
+            </setter>
+        </property>
+
+        <method name="focus">
+            <body>
+                document.getAnonymousElementByAttribute(this, "anonid", "textBox").focus();
+            </body>
+        </method>
+        
+    </implementation>
+
+    <handlers>
+        <handler event="keypress">
+            var textBox = document.getAnonymousElementByAttribute(this, "anonid", "textBox"); 
+
+            // If validate by pressing enter
+            if(event.keyCode == event.DOM_VK_RETURN) {
+                var okButton = document.getAnonymousElementByAttribute(this, "anonid", "okButton");
+                okButton.doCommand();
+            }
+            // If cancel by pressing escape
+            else if(event.keyCode == event.DOM_VK_ESCAPE || event.keyCode == event.DOM_VK_CANCEL) {
+                var cancelButton = document.getAnonymousElementByAttribute(this, "anonid", "cancelButton");
+                cancelButton.doCommand();
+            }
+            else if (textBox.value == this.defaultText) {
+                textBox.value = '';
+                textBox.style.color = '#505050';
+            }
+        </handler>
+        <handler event="click">
+            var textBox = document.getAnonymousElementByAttribute(this, "anonid", "textBox");
+            if(textBox.value == this.defaultText) {
+                textBox.value = '';
+                textBox.style.color = '#505050';
+            }
+        </handler>
+        <handler event="input">
+            var textBox = document.getAnonymousElementByAttribute(this, "anonid", "textBox");
+            textBox.value = textBox.value.slice(0, 1000);
+        </handler>
+    </handlers>
+
+  </binding>
+</bindings>

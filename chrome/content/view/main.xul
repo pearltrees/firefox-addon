@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+<!--
+/* ***** BEGIN LICENSE BLOCK *****
+ * 
+ * Pearltrees add-on AMO, Copyright(C), 2009, Broceliand SAS, Paris, France
+ * (company in charge of developing Pearltrees)
+ * 
+ * This file is part of "Pearltrees add-on AMO".
+ * 
+ * Pearltrees add-on AMO is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License version 3 as published by the Free Software Foundation.
+ * 
+ * Pearltrees add-on AMO is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with Pearltrees add-on AMO.
+ * If not, see <http://www.gnu.org/licenses/>
+ * 
+ * ***** END LICENSE BLOCK *****
+-->
+
+<?xml-stylesheet href="chrome://broceliand/skin/broceliand.css"
+                 type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://broceliand/locale/toolbar.dtd">
+<overlay id="BRO-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+         xmlns:html="http://www.w3.org/1999/xhtml">
+
+    <!-- Localisation -->
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="toolbar-strings"
+                      src="chrome://broceliand/locale/toolbar.properties"/>
+    </stringbundleset>
+
+    <menupopup id="toolbar-context-menu">
+        <menuitem id="this.bro.Options"
+                  label="&prefwindow.title;"
+                  oncommand="com.broceliand.Toolbar.showOptions();"/>
+    </menupopup>
+
+    <!-- Right Click Menu -->
+    <menupopup id="contentAreaContextMenu" onpopupshown="com.broceliand.ContextMenuItemController.onContextMenuShown();">
+        <menuseparator id="contextMenuPearlSeparator"/>
+        <menuitem id="contextMenuRecordItem"
+                  label="&record.item.label;"
+                  accesskey="p"
+                  class="menuitem-iconic"
+                  image="chrome://broceliand/skin/images/pearl/pearl_mini.png"
+                  oncommand="com.broceliand.ContextMenuItemController.onClickRecordItem(event);"/>
+        <menuitem id="contextMenuRecordLinkItem"
+                  label="&record.link.item.label;"
+                  accesskey="p"
+                  class="menuitem-iconic"
+                  image="chrome://broceliand/skin/images/pearl/pearl_mini.png"
+                  oncommand="com.broceliand.ContextMenuItemController.onClickRecordLinkItem(event);"/>
+        <menuitem id="contextMenuNewItem"
+                  label="&new.item.label;"
+                  accesskey="y"
+                  class="menuitem-iconic"
+                  image="chrome://broceliand/skin/images/new/new_mini.png"
+                  oncommand="com.broceliand.ContextMenuItemController.onClickNewItem(event);"/>
+        <menuitem id="contextMenuNewItemHome"
+                  label="&new.item.label.home;"
+                  accesskey="y"
+                  class="menuitem-iconic"
+                  image="chrome://broceliand/skin/images/new/go_mini.png"
+                  oncommand="com.broceliand.ContextMenuItemController.onClickNewItem(event);"/>
+        <menuitem id="contextMenuHomeItem"
+                  label="&home.item.label;"
+                  accesskey="g"
+                  class="menuitem-iconic"
+                  image="chrome://broceliand/skin/images/reveal/reveal_mini.png"
+                  oncommand="com.broceliand.ContextMenuItemController.onClickHomeItem(event);"/>
+    </menupopup>
+
+    <!-- BrowserToolbarPalette holds all custom buttons -->
+    <toolbarpalette id="BrowserToolbarPalette" customizable="true">
+
+            <toolbarbutton id="BRO_recordButton"
+                           tooltiptext="&record.button.tooltip;"
+                           label="&record.button.label;"
+                           class="BRO_recordButtonDefault"
+                           dir="normal"
+                           orient="horizontal"
+                           type="menu-button"
+                           onmouseover="com.broceliand.RecordButtonController.onMouseOver()"
+                           oncommand="com.broceliand.RecordButtonController.onClickRecordButton(event)">
+                <menupopup id="BRO_recordButtonPopup"
+                           ignorekeys="true"
+                           position="after_start"
+                           onpopupshowing="com.broceliand.RecordButtonController.onShowRecordButtonPopup()"
+                           class="BRO_menuPopup">
+                    
+                    <hbox>
+                    	<spacer flex="1" />
+                        <vbox style="vertical-align:middle;padding-top:2px;">
+                            <image style="margin-right:2px;"
+                                   class="BRO_closeButton"
+                                   onclick="com.broceliand.RecordButtonController.closePopup()" />
+                            <spacer flex="1" />
+                        </vbox>    
+                    </hbox>
+                    
+                    <spacer height="1px" />
+                    
+                    <hbox id="BRO_socialSyncButtonItem"
+                          class="BRO_treeListBoxSpecialItem"
+                          onclick="com.broceliand.RecordButtonController.onClickSocialSync()">
+                        <image src="chrome://broceliand/skin/images/pearl/connect.png" />
+                        <description id="BRO_socialSyncButtonText">
+                            &record.button.socialSync;
+                        </description>
+                        <!--
+                        <spacer flex="1" />
+                        <vbox style="vertical-align:middle;padding-top:2px;">
+                            <image style="margin-right:2px;"
+                                   class="BRO_closeButton"
+                                   onclick="com.broceliand.RecordButtonController.closePopup()" />
+                            <spacer flex="1" />
+                        </vbox>
+                        -->  
+                    </hbox>
+                    <hbox id="BRO_noteButtonItem"
+                    	  class="BRO_treeListBoxSpecialItem"
+                          onclick="com.broceliand.RecordButtonController.onClickAddNote()">
+                        <image src="chrome://broceliand/skin/images/pearl/note.png" />
+                        <description id="BRO_noteButtonText">
+                            &record.button.note;
+                        </description>
+                    </hbox>
+                    <!--
+                    <separator class="groove-thin" />
+                    -->
+                    <hbox class="BRO_treeListBoxSpecialItem"
+                          onclick="com.broceliand.RecordButtonController.onClickHelp()">
+                    	<image src="chrome://broceliand/skin/images/pearl/help.png" />
+                        <description>
+                            &record.button.help;
+                        </description>
+                    </hbox>
+                </menupopup>
+            </toolbarbutton>
+
+            <toolbarbutton id="BRO_newButton"
+                           tooltiptext="&new.button.tooltip;"
+                           label="&new.button.label;"
+                           class="BRO_newButtonPearlMode"
+                           onmouseover="com.broceliand.InButtonController.onMouseOver()"
+                           onclick="com.broceliand.InButtonController.onClickToolbarButton()"
+                           popup="BRO_newButtonPopup">
+            </toolbarbutton>
+                           <!-- image="chrome://broceliand/skin/images/new/new.png" -->
+
+            <toolbarbutton id="BRO_homeButton" 
+                           tooltiptext="&home.button.tooltip;"
+                           label="&home.button.label;"
+                           class="BRO_homeButton"
+                           onmouseover="com.broceliand.HomeButtonController.onMouseOver()"
+                           oncommand="com.broceliand.HomeButtonController.onClickHomeButton(event)" />
+            <!-- image="chrome://broceliand/skin/images/reveal/reveal.png" -->
+
+            <toolbarbutton id="BRO_firstInstallButton"
+                           tooltiptext="&firstInstall.button.tooltip;"
+                           label="&firstInstall.button.label;"
+                           class="BRO_homeButton"
+                           oncommand="com.broceliand.HomeButtonController.onClickCreateAccount(event)">
+                <menupopup id="BRO_firstInstallButtonPopup" 
+                           ignorekeys="true"
+                           class="BRO_menuPopup"
+                           position="after_start"
+                           onpopupshowing="">
+                	
+                    <hbox style="padding-left:2px;padding-top:2px;">
+                    	<vbox>
+                    		<spacer flex="1" />
+                            <image src="chrome://broceliand/skin/images/pearl/dimitri.png" />
+                            <spacer flex="1" />
+                        </vbox> 
+                        <description class="BRO_menuPopupTitle"
+                                     flex="1">
+                            &popup.reveal.title;
+                        </description>
+                        <vbox style="vertical-align:middle;padding-top:3px;">
+                            <spacer flex="1" />
+                            <image style="margin-right:5px;"
+                                   class="BRO_closeButton"
+                                   onclick="com.broceliand.HomeButtonController.closePopup();" />
+                            <spacer flex="1" />
+                        </vbox>    
+                    </hbox>                    
+                	
+                	<spacer height="10px" />
+                	
+                	<hbox class="BRO_treeListBoxSpecialItem"
+                          onclick="com.broceliand.HomeButtonController.onClickCreateAccount(event)">
+                        <image src="chrome://broceliand/skin/images/reveal/option.png" />
+                        <description>
+                            &firstInstall.button.createAccount;
+                        </description>
+                    </hbox>
+                	
+                    <hbox class="BRO_treeListBoxSpecialItem"
+                          onclick="com.broceliand.HomeButtonController.onClickLogin(event)">
+                        <image src="chrome://broceliand/skin/images/reveal/option.png" />
+                        <description>
+                            &firstInstall.button.login;
+                        </description>
+                    </hbox>
+                </menupopup>
+            </toolbarbutton>
+            <!-- image="chrome://broceliand/skin/images/reveal/reveal.png" -->
+
+    </toolbarpalette>
+
+    <!-- mainPopupSet holds button panels -->
+    <window id="main-window">
+
+<!-- Is now added by the JS code
+    <panel id="BRO_newTreePanel"
+           class="BRO_menuPopup"
+           onpopupshowing=com.broceliand.InButtonController.onNewTreePanelShowing()">
+
+       <vbox id="BRO_newTreePanelContent" 
+             class="BRO_nameTreePopupContent"
+             onCancel=com.broceliand.InButtonController.onClickCancelNewTree()"
+             onValidate=com.broceliand.InButtonController.onClickValidateNewTree()" />
+
+    </panel>
+-->
+        <popupset id="mainPopupSet">
+                        
+            <menupopup id="BRO_newButtonPopup"
+                       ignorekeys="true"
+                       position="after_start"
+                       onpopupshowing="com.broceliand.InButtonController.onShowTreeList(event)"
+                       onpopuphidden="com.broceliand.InButtonController.onHideTreeList(event)"
+                       class="BRO_menuPopup">
+
+                <hbox>
+                	<vbox>
+                        <spacer flex="1" />
+                	    <image src="chrome://broceliand/skin/images/new/title.png" style="margin-top:8px;margin-left:8px;" />
+                	    <spacer flex="1" />
+                	</vbox>    
+                    <description id="BRO_newButtonMenuPopupTitle" 
+                                 class="BRO_menuPopupTitle"
+                                 flex="1">
+                    </description>
+                    <vbox style="vertical-align:middle;padding-top:2px;">
+                        <image style="margin-right:2px;"
+                        	   class="BRO_closeButton"
+                        	   onclick="com.broceliand.InButtonController.closePopup()" />
+                    	<spacer flex="1" />
+                    </vbox>	   
+                </hbox>
+                
+                <spacer height="20px" />
+                
+                <vbox id="BRO_newButtonPopupHeader">
+                   
+                    <vbox id="BRO_newTreeButtonContainer">
+                        <hbox class="BRO_treeListBoxSpecialItem"
+                              onclick="com.broceliand.Toolbar.showNewTreeWindow()">
+                            <description>
+                                &new.createNew;
+                            </description>
+                        </hbox>
+                    </vbox>
+                    
+                    <spacer height="8" />
+                    
+                    <hbox id="BRO_dropZoneButton" 
+                          class="BRO_treeListBoxSpecialItem"
+                          onclick="com.broceliand.InButtonController.onClickDropZoneTree()">
+                        <description>
+                            &new.dropzone;
+                        </description>
+                    </hbox>
+                    
+                    <spacer height="8" />
+                    
+                    <hbox>
+                        <description style="font-weight:bold;padding-left:3px;font-size:14px;">
+                            &new.pearltreePartTitle;
+                        </description>
+                    </hbox>
+                </vbox>
+                
+                <spacer height="5" />
+                
+                <hbox id="BRO_rootTreeButton"
+                      class="BRO_treeListBoxSpecialItem"
+                      onclick="com.broceliand.InButtonController.onClickRootTree()">
+                    <description id="BRO_rootTreeTitle" style="font-weight:normal;">
+                    </description>
+                </hbox>
+
+                <richlistbox id="BRO_treeListBox"
+                             flex="1"
+                             class="BRO_treeListBox">
+                  <richlistitem>
+                    <label>&new.popup.loading;</label>
+                  </richlistitem>
+                </richlistbox>
+
+                <vbox id="BRO_newButtonPopupFooter">
+                    <spacer height="10" />
+
+                    <hbox style="padding-left:8px;">
+                    	<image src="chrome://broceliand/skin/images/new/mode.png" style="margin-right:5px;" />
+                        <button id="BRO_switchModeButton"
+                                style="text-align:left;"
+                                class="BRO_linkButton"
+                                onclick="com.broceliand.InButtonController.onClickSwitchMode()" />
+                    </hbox>
+
+                    <spacer height="5" />
+                </vbox>
+            </menupopup>
+
+        </popupset>
+    </window>
+
+    <script type="application/x-javascript" src="chrome://broceliand/content/config.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/model/Log.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/WindowManager.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/model/Locale.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/Utils.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/model/JSONFF2.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/model/Model.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/CollapsibleListController.js" />
+
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/Listeners.js" />
+
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/LoginController.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/buttons/ButtonEffectHelper.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/buttons/HomeButtonController.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/buttons/InButtonController.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/buttons/RecordButtonController.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/buttons/ContextMenuItemController.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/buttons/NoteController.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/buttons/ButtonsHandler.js" />
+
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/Toolbar.js" />
+
+</overlay>

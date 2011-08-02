@@ -1,0 +1,84 @@
+<!ENTITY prefwindow.title         "Pearltrees add-on options">
+<!ENTITY toolbar.name             "Pearltrees add-on">
+
+<!ENTITY record.button.label        "pearl">
+<!ENTITY record.button.tooltip      "pearl the stuff you are currently browsing">
+<!ENTITY record.button.note         "Comment on this page">
+<!ENTITY record.button.twitt        "Tweet this page">
+<!ENTITY record.button.socialSync   "Manage your FB / Twitter connections">
+<!ENTITY record.button.mode         "Autopearl">
+<!ENTITY record.button.help         "Help">
+<!ENTITY record.button.options.title "Options">
+
+<!ENTITY new.popup.loading        "loading...">
+<!ENTITY new.button.label         "account">
+<!ENTITY new.button.tooltip       "choose where you want to put your pearl">
+<!ENTITY new.pearltreePartTitle   "in one of your existing pearltrees">
+<!ENTITY new.createNew            "in a new pearltree">
+<!ENTITY new.dropzone             "in your drop zone">
+
+<!ENTITY note.button.label        "note">
+<!ENTITY note.button.tooltip      "add a note to your pearl">
+<!ENTITY note.button.confirm      "OK">
+<!ENTITY note.button.cancel       "cancel">
+<!ENTITY popup.note.title         "Comment on this page">
+
+<!ENTITY firstInstall.button.tooltip       "activate your pearltrees addon">
+<!ENTITY firstInstall.button.label         "activate your pearltrees addon">
+<!ENTITY firstInstall.button.createAccount "activate your pearltrees addon">
+<!ENTITY firstInstall.button.login         "login to pearltrees">
+
+<!ENTITY record.item.label       "Pearl this page">
+<!ENTITY record.link.item.label  "Pearl this link">
+<!ENTITY new.item.label          "Pearl directly in...">
+<!ENTITY new.item.label.home     "Go directly to...">
+<!ENTITY home.item.label         "Go to your account">
+
+<!ENTITY home.button.label        "reveal">
+<!ENTITY home.button.tooltip      "go to your account">
+
+<!ENTITY stop.button.label        "stop">
+<!ENTITY stop.button.tooltip      "stop recording your navigation">
+
+<!ENTITY popup.login.login.message     "Please log-in to use Pearltrees add-on.">
+<!ENTITY popup.login.login.label       "ok">
+<!ENTITY popup.login.cancel.label      "cancel">
+
+<!ENTITY popup.treeFull.title             "Too many pearls in this pearltree!">
+<!ENTITY popup.treeFull.text              "You can't put more than 100 pearls in a pearltree. Please create a new pearltree to add more pearls.">
+<!ENTITY popup.treeFull.button.continue   "cancel">
+
+<!ENTITY popup.manyPearls.text                 "You will play more easily with your pearls if you spread them across several pearltrees">
+<!ENTITY popup.manyPearls.button.continue      "continue anyway">
+<!ENTITY popup.manyPearls.button.confirm       "OK">
+
+<!ENTITY popup.nameTree.title          "Name your new pearltree">
+<!ENTITY popup.nameTree.button.cancel  "cancel">
+<!ENTITY popup.nameTree.button.confirm "OK">
+
+<!ENTITY popup.nameTreeDone.title     "Done!">
+
+<!ENTITY popup.login.title            "Please log-in to use the add-on">
+<!ENTITY popup.login.button.cancel    "cancel">
+<!ENTITY popup.login.button.confirm   "OK">
+<!ENTITY popup.login.username         "username">
+<!ENTITY popup.login.password         "password">
+<!ENTITY popup.login.error            "wrong username or password">
+
+<!ENTITY popup.option.title              "Options">
+<!ENTITY popup.option.button.cancel      "cancel">
+<!ENTITY popup.option.button.confirm     "ok">
+<!ENTITY popup.option.syncPearltreesText "Pearl in your main pearltree by default">
+<!ENTITY popup.option.navListMode        "Go directly to one of your pearltree by default">
+<!ENTITY popup.option.autoPearl          "Pearl your browse">
+
+<!ENTITY popup.nameTreeDone.title    "done">
+
+<!ENTITY popup.help.confirm          "ok">
+<!ENTITY popup.help.title.firstStart "You have successfully installed your Pearltrees add-on! Now pearl the stuff you like on the web and find them back in your account.">
+<!ENTITY popup.help.item.pearl       "pearl any web page you like">
+<!ENTITY popup.help.item.option      "comment on the web pages you pearl">
+<!ENTITY popup.help.item.new         "put your pearl directly in one of your pearltrees">
+<!ENTITY popup.help.item.reveal      "go to your account">
+
+<!ENTITY popup.reveal.title     "Installation successful">

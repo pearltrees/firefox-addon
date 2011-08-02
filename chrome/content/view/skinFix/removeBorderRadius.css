@@ -1,0 +1,9 @@
+.BRO_menuPopup {
+    -moz-border-radius: 0 !important;
+}
+.BRO_menuPopup textbox {
+    -moz-border-radius: 0 !important;
+}
+.BRO_okButton {
+    -moz-border-radius: 0 !important;
+}

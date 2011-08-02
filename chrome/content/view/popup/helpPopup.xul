@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/* ***** BEGIN LICENSE BLOCK *****
+ * 
+ * Pearltrees add-on AMO, Copyright(C), 2009, Broceliand SAS, Paris, France
+ * (company in charge of developing Pearltrees)
+ * 
+ * This file is part of “Pearltrees add-on AMO”.
+ * 
+ * Pearltrees add-on AMO is free software: you can redistribute it and/or modify it under the 
+ * terms of the GNU General Public License version 3 as published by the Free Software Foundation.
+ * 
+ * Pearltrees add-on AMO is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with Pearltrees add-on AMO.
+ * If not, see <http://www.gnu.org/licenses/>
+ * 
+ * ***** END LICENSE BLOCK *****
+-->
+
+<?xml-stylesheet href="chrome://broceliand/skin/broceliand.css"
+                 type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://broceliand/locale/toolbar.dtd">
+<window id="BRO_helpPanel"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        class="BRO_menuPopup"
+        onkeypress="onKeypress(event)"
+        onclick="closePopup();"
+        onload="init();">
+
+    <vbox id="BRO_helpWindowContent" 
+       class="BRO_helpPopupContent"
+       onValidate="onClickOkButton()" />
+
+    <script type="application/x-javascript" src="chrome://broceliand/content/config.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/model/Log.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/model/Locale.js" />
+
+    <script> 
+        <![CDATA[
+        function init() {
+            var helpContent = document.getElementById('BRO_helpWindowContent');
+            helpContent.isStart = window.arguments[0].isStart;
+            helpContent.focus();
+        }
+        
+        function onKeypress(event) {
+            // If validate by pressing key
+            if(event.keyCode == event.DOM_VK_RETURN || event.keyCode == event.DOM_VK_ESCAPE || event.keyCode == event.DOM_VK_CANCEL) {
+                closePopup();
+            }
+        }
+        
+        function onClickOkButton(event) {
+            closePopup();
+        }
+
+        function closePopup() {
+            window.close();
+        }
+        ]]>
+    </script>
+
+</window>

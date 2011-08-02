@@ -1,0 +1,9 @@
+content broceliand chrome/content/
+overlay chrome://browser/content/browser.xul chrome://broceliand/content/view/main.xul
+style chrome://global/content/customizeToolbar.xul chrome://broceliand/skin/broceliand.css
+
+locale  broceliand en-US chrome/locale/en-US/
+locale  broceliand en    chrome/locale/en-US/
+locale  broceliand fr    chrome/locale/en-US/
+
+skin    broceliand classic/1.0 chrome/skin/

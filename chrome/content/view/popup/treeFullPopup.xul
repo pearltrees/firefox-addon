@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<!--
+/* ***** BEGIN LICENSE BLOCK *****
+ * 
+ * Pearltrees add-on AMO, Copyright(C), 2009, Broceliand SAS, Paris, France 
+ * (company in charge of developing Pearltrees)
+ * 
+ * This file is part of “Pearltrees add-on AMO”.
+ * 
+ * Pearltrees add-on AMO is free software: you can redistribute it and/or modify it under the 
+ * terms of the GNU General Public License version 3 as published by the Free Software Foundation.
+ * 
+ * Pearltrees add-on AMO is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with Pearltrees add-on AMO.
+ * If not, see <http://www.gnu.org/licenses/>
+ * 
+ * ***** END LICENSE BLOCK *****
+-->
+
+<?xml-stylesheet href="chrome://broceliand/skin/broceliand.css"
+                 type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://broceliand/locale/toolbar.dtd">
+<window id="BRO_treeFullWindow"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        class="BRO_menuPopup"
+        onkeypress="onKeypress(event)"
+        onload="init();">
+
+    <!-- Localisation -->
+    <stringbundleset id="stringbundleset">
+        <stringbundle id="toolbar-strings"
+                      src="chrome://broceliand/locale/toolbar.properties"/>
+    </stringbundleset>
+
+    <vbox>
+        
+        <hbox>
+        	<vbox>
+                <spacer flex="1" />
+                <image src="chrome://broceliand/skin/images/new/title.png" style="margin-top:8px;margin-left:8px;" />
+        	    <spacer flex="1" />
+        	</vbox>
+            <description id="BRO_menuPopupTitle"
+                         class="BRO_menuPopupTitle"
+                         flex="1">
+            	&popup.treeFull.title;
+            </description>
+            <vbox style="vertical-align:middle;padding-top:2px;">
+                <image style="margin-right:2px;"
+                       class="BRO_closeButton"
+                       onclick="onClickContinueButton(event)" />
+                <spacer flex="1" />
+            </vbox>
+        </hbox>
+        
+        
+        <vbox class="BRO_menuPopupContent">
+        
+            <spacer height="10" />
+    
+            <description id="BRO_manyPearlsText">
+                &popup.treeFull.text;
+            </description>
+    
+            <spacer height="30" />
+            
+            <!-- TODO remove
+            <hbox style="padding-left:3px; padding-right:3px;">
+                <button label="&popup.treeFull.button.continue;"
+                        default="true"
+                        tabindex="1"
+                        style="font-weight:normal"
+                        class="BRO_linkButton"
+                        oncommand="onClickContinueButton(event)"/>
+                <spacer flex="1" />
+                <button label="&popup.manyPearls.button.confirm;"
+                        tabindex="2"
+                        class="BRO_linkButton"
+                        oncommand="onClickNewTreeButton(event)"/>
+            </hbox>
+            -->
+            
+            <hbox>
+                <spacer flex="1" />
+                <button anonid="okButton"
+                            label="&popup.manyPearls.button.confirm;"
+                            tabindex="1"
+                            class="BRO_okButton"
+                            oncommand="onClickNewTreeButton(event)" />
+                <spacer flex="1" />
+            </hbox>
+        </vbox>
+    </vbox>
+
+    <script type="application/x-javascript" src="chrome://broceliand/content/config.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/model/Locale.js" />
+
+    <script>
+        <![CDATA[
+        function init() {
+            /*
+            var manyPearlsText = document.getElementById('BRO_manyPearlsText');
+            manyPearlsText.value = this.bro.Locale.getString('popup.treeFull.text.beforePearlCount') + ' '
+                                 + window.arguments[0].pearlCount + ' '
+                                 + this.bro.Locale.getString('popup.treeFull.text.afterPearlCount');
+            */
+        }
+
+        function onClickNewTreeButton(event) {
+            window.arguments[0].createNewTree = true;
+            window.close();
+        }
+
+        function onClickContinueButton(event) {
+            window.arguments[0].createNewTree = false;
+            window.close();
+        }
+
+        function onKeypress(event) {
+            // If validate by pressing enter
+            if(event.keyCode == event.DOM_VK_RETURN) {
+                onClickNewTreeButton(null);
+            }
+            // If cancel by pressing escape
+            else if(event.keyCode == event.DOM_VK_ESCAPE || event.keyCode == event.DOM_VK_CANCEL){
+                onClickContinueButton(null);
+            }
+        }
+        ]]>
+    </script>
+
+</window>

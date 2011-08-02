@@ -1,0 +1,13 @@
+<!ENTITY prefwindow.width          "53ex">
+<!ENTITY prefwindow.title          "Pearltrees add-on options">
+<!ENTITY account.panel.label       "Settings">
+<!ENTITY about.panel.label         "About">
+<!ENTITY customize.link.value      "Customize your Pearltrees add-on">
+<!ENTITY about.version             "Version:">
+<!ENTITY about.author              "Author:">
+<!ENTITY about.licence             "Licence:">
+<!ENTITY about.server              "Server:">
+<!ENTITY about.source              "Source:">
+<!ENTITY about.status              "Status:">
+<!ENTITY error.description         "The Pearltrees add-on is not connected to your account.<html:br/>Please, enter here your new username and password.">
+<!ENTITY error.status              "Failed to retreive status information.">

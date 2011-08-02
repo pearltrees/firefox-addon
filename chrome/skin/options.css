@@ -1,0 +1,38 @@
+#BRO_prefs {
+
+}
+#BRO_account{
+    padding:2em;
+}
+prefpane{
+    padding:1em;
+}
+#BRO_errorDescription{
+    color:red;
+}
+#BRO_logoutButton{
+	margin-top:0.5em;
+}
+#BRO_customizeButton{
+    margin-top:0.5em;
+}
+.BRO_linkButton{
+    -moz-appearance: none;
+    padding-left:0px;
+    padding-right:0px;
+    border:none;
+    background:none;
+    background-color: transparent;
+    background-image: none;
+    list-style-image: none;
+    font-weight: bold;
+    text-decoration: none;
+    margin:0px;
+    padding:0px;
+    min-width:0px;
+    font-size:12px;
+    color: #4cbbe9;
+}
+.BRO_linkButton:hover {
+    color: #009ee0;
+}

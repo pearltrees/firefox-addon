@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+   <ShortName>Pearltrees</ShortName>
+   <Description>Search using Pearltrees</Description>
+   <InputEncoding>UTF-8</InputEncoding>
+   <Image width="16" height="16">data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8AtWkDNrVpA5m2agPbtmoD/7drA/+3awPbt2wDmbdsAzP///8A////AP///wD///8A////AP///wC1aQMJtWkDn7ZqA/+2awP/t2wD/7luA/+6cAT/vHIE/7xyBP+8cgT/vHEEn7pwBAn///8A////AP///wC1aQMJtWkDxrZqA/+3awP/uW4D/7xxBP++dQT/4sCJ///////r06r/xX0G/8N7Bf/BeQXGvnUECf///wD///8AtWkDn7ZqA/+3bAP/um8E/752CP/Efg3/yYYS//z37////////////9KSGf/OiAf/y4UH/8eABp////8AtWkDM7ZqA/+3awP/um8E/8B4Cv/HhBP/zo8d/+vPmP/8+O///fz3//DXo//amhT/15QJ/9SRCP/Qiwj/y4QHM7VpA5+2awP/uW4D/752CP/HhBP/0pcr//Tjwv/36s7/47RJ/+OvOf/jrDD/4acj/96fEv/bmgr/2JUJ/9OPCJ+2agPet2wD/7xxBP/Efg3/1J06//ju2v/y3Kz/5rVI/+i3Sf/ouEX/6LQ9/+auLv/jpxv/4KAL/96dCv/ZlwnetmoD+bluA//hwIz///////369f/ry4f/5rRG/+m6Tv/qvFD/6rpL/+i3Qv/03KP///////HTjP/hoAv/3p0K+bdrA/m6cAT/+/fw/////////////////////////////////////////////////////////vz/4qMO/+CgC/m3awPbvHEE/962df/79uv//frz//DUlP/ouEX/6rpL/+q6S//puUb/6LU9//Tan//+/fr/8NCE/+KiC//hoQvet2wDn7xyBP/EfAb/0I0N/9+qOf/68Nr/9uO2/+m5Rv/ot0L/6LU9/+exM//lrCX/46UT/+KiC//iogv/4qELn7dsAzC8cgT/xHwG/8+KCP/ZmhP/4qor//fkuv/57c//6bhF/+avLv/lrCX/46cX/+KiC//iogv/4qIL/+KhCzD///8AvHEEnMN7Bf/OiAf/15QJ/96fEv/jpxv/8teW//368f///v3/89qe/+KiC//iogv/4qIL/+KiC5z///8A////ALpwBAnBeQXGy4UH/9SRCP/bmgr/4J8L/+KiC//9+O7////////+/P/jpBH/4qIL/+KiC8biogsJ////AP///wD///8AvnUECceABp/Qiwj/2JUJ/96cCv/hoAv/8NCE//789v/x04z/4qIL/+KiC5/iogsJ////AP///wD///8A////AP///wD///8Ay4QHMNOPCJPZlwnY3pwK/+CfC//hoQvY4qELk+KhCzD///8A////AP///wD///8A+B8AAOAHAADAAwAAgAEAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMADAADgBwAA+B8AAA==</Image>
+   <moz:SearchForm>http://www.pearltrees.com/</moz:SearchForm>
+   <Url type="text/html" method="GET" template="http://www.pearltrees.com/#/N-q={searchTerms}"></Url>
+</OpenSearchDescription>

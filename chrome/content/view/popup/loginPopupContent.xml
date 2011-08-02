@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<!--
+/* ***** BEGIN LICENSE BLOCK *****
+ * 
+ * Pearltrees add-on AMO, Copyright(C), 2009, Broceliand SAS, Paris, France 
+ * (company in charge of developing Pearltrees)
+ * 
+ * This file is part of “Pearltrees add-on AMO”.
+ * 
+ * Pearltrees add-on AMO is free software: you can redistribute it and/or modify it under the 
+ * terms of the GNU General Public License version 3 as published by the Free Software Foundation.
+ * 
+ * Pearltrees add-on AMO is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with Pearltrees add-on AMO. 
+ * If not, see <http://www.gnu.org/licenses/>
+ * 
+ * ***** END LICENSE BLOCK *****
+-->
+
+<!DOCTYPE overlay SYSTEM "chrome://broceliand/locale/toolbar.dtd">
+<bindings xmlns="http://www.mozilla.org/xbl"
+          xmlns:xbl="http://www.mozilla.org/xbl"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <binding id="content">
+
+    <content>
+        <xul:vbox width="326px">
+        	
+        	<xul:hbox>
+        		<xul:vbox>
+        			<xul:spacer flex="1" />
+                    <xul:image src="chrome://broceliand/skin/images/pearl/dimitri.png" style="margin-top:8px;margin-left:8px;" />
+                    <xul:spacer flex="1" />
+                </xul:vbox>
+                <xul:description class="BRO_menuPopupTitle"
+                                 flex="1"
+                                 style="padding-left:5px !important;">
+                    &popup.login.title;
+                </xul:description>
+                <xul:vbox style="vertical-align:middle;padding-top:2px;">
+                    <xul:image style="margin-right:2px;"
+                           class="BRO_closeButton"
+                           xbl:inherits="onclick=onCancel" />
+                    <xul:spacer flex="1" />
+                </xul:vbox>
+            </xul:hbox>
+            
+            <xul:vbox class="BRO_menuPopupContent">
+                <xul:spacer height="10" />
+    
+                <xul:description style="padding-left:0px;">
+                	&popup.login.username;
+                </xul:description>
+                <xul:spacer height="3" />
+                <xul:textbox anonid="usernameTextBox" 
+                             class="BRO_textBox"
+                             maxlength="44" />
+    
+                <xul:spacer height="15" />
+    
+                <xul:description style="padding-left:0px;">
+                	&popup.login.password;
+                </xul:description> 
+                <xul:spacer height="3" />
+                <xul:textbox anonid="passwordTextBox" 
+                             class="BRO_textBox"
+                             maxlength="44"
+                             type="password" />
+    
+                <xul:spacer height="5" />
+                <xul:description anonid="errorMessage"
+                                 style="color:#FF6C00;font-weight:bold;padding-left:3px;visibility:hidden;margin-bottom:7px;">
+                    &popup.login.error;
+                </xul:description>
+    
+                <xul:hbox>
+                	<!-- TODO remove
+                    <xul:button anonid="cancelButton"
+                                label="&popup.login.button.cancel;"
+                                default="true"
+                                tabindex="1"
+                                style="font-weight:normal"
+                                class="BRO_linkButton"
+                                xbl:inherits="oncommand=onCancel" />
+                    <xul:spacer flex="1" />
+                    
+                    <xul:button anonid="okButton"
+                                label="&popup.login.button.confirm;"
+                                tabindex="2"
+                                class="BRO_linkButton"
+                                xbl:inherits="oncommand=onValidate" />
+                    -->       
+                    <xul:spacer flex="1" />
+                    <xul:button anonid="okButton"
+                                label="&popup.login.button.confirm;"
+                                tabindex="1"
+                                class="BRO_okButton"
+                                xbl:inherits="oncommand=onValidate" />
+                    <xul:spacer flex="1" />     
+                </xul:hbox>
+            </xul:vbox>
+        </xul:vbox>
+    </content>
+
+    <implementation>
+        <property name="username">
+            <getter>
+                return document.getAnonymousElementByAttribute(this, "anonid", "usernameTextBox").value;
+            </getter>
+            <setter>
+                document.getAnonymousElementByAttribute(this, "anonid", "usernameTextBox").value = val;
+            </setter>
+        </property>
+
+        <property name="password">
+            <getter>
+                return document.getAnonymousElementByAttribute(this, "anonid", "passwordTextBox").value;
+            </getter>
+            <setter>
+                document.getAnonymousElementByAttribute(this, "anonid", "passwordTextBox").value = val;
+            </setter>
+        </property>
+
+        <method name="focusUsername">
+            <body>
+                document.getAnonymousElementByAttribute(this, "anonid", "usernameTextBox").focus();
+            </body>
+        </method>
+
+        <method name="focusPassword">
+            <body>
+                document.getAnonymousElementByAttribute(this, "anonid", "passwordTextBox").focus();
+            </body>
+        </method> 
+
+        <method name="displayError">
+            <body>
+                document.getAnonymousElementByAttribute(this, "anonid", "errorMessage").style.visibility = 'visible';
+            </body>
+        </method>
+
+        <method name="hideError">
+            <body>
+                document.getAnonymousElementByAttribute(this, "anonid", "errorMessage").style.visibility = 'hidden';
+            </body>
+        </method>
+
+    </implementation>
+
+    <handlers>
+        <handler event="keypress">
+            // If validate by pressing enter
+            if(event.keyCode == event.DOM_VK_RETURN) {
+                document.getAnonymousElementByAttribute(this, "anonid", "okButton").doCommand();
+            }
+            // If cancel by pressing escape
+            else if(event.keyCode == event.DOM_VK_ESCAPE || event.keyCode == event.DOM_VK_CANCEL) {
+                document.getAnonymousElementByAttribute(this, "anonid", "cancelButton").doCommand();
+            }
+        </handler>
+    </handlers>
+
+  </binding>
+</bindings>

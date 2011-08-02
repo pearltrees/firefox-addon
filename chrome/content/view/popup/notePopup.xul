@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+/* ***** BEGIN LICENSE BLOCK *****
+ * 
+ * Pearltrees add-on AMO, Copyright(C), 2009, Broceliand SAS, Paris, France 
+ * (company in charge of developing Pearltrees)
+ * 
+ * This file is part of “Pearltrees add-on AMO”.  
+ * 
+ * Pearltrees add-on AMO is free software: you can redistribute it and/or modify it under the 
+ * terms of the GNU General Public License version 3 as published by the Free Software Foundation.
+ * 
+ * Pearltrees add-on AMO is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with Pearltrees add-on AMO. 
+ * If not, see <http://www.gnu.org/licenses/>
+ * 
+ * ***** END LICENSE BLOCK *****
+-->
+
+<?xml-stylesheet href="chrome://broceliand/skin/broceliand.css"
+                 type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://broceliand/locale/toolbar.dtd">
+<window id="BRO_noteWindow"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        class="BRO_menuPopup"
+        onload="init();">
+
+    <vbox id="BRO_noteWindowContent" 
+          class="BRO_notePopupContent"
+          onCancel="onClickCancelButton()"
+          onValidate="onClickOkButton()" />
+
+    <script type="application/x-javascript" src="chrome://broceliand/content/config.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/model/Log.js" />
+    <script type="application/x-javascript" src="chrome://broceliand/content/controller/Utils.js" />
+
+    <script>
+        <![CDATA[
+        function init() {
+            var defaultText = window.arguments[0].inn.defaultText;
+            var noteContent = document.getElementById('BRO_noteWindowContent');
+            noteContent.defaultText = defaultText;
+            noteContent.focus();
+        }
+
+        function onClickOkButton(event) {
+            validate();
+        }
+
+        function onClickCancelButton(event) {
+            cancel();
+        }
+
+        function validate() {
+            var noteText = document.getElementById('BRO_noteWindowContent').text;
+            if(com.broceliand.Tools.trim(noteText) != "") {
+                window.arguments[0].out = {noteText:noteText, confirm:true};
+                window.close();
+            }
+        }
+        function cancel() {
+            window.arguments[0].out = {noteText:null, confirm:false};
+            window.close();
+        }
+        ]]>
+    </script>
+
+</window>
